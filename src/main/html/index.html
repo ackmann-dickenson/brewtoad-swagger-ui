@@ -38,7 +38,7 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://petstore.swagger.io/v2/swagger.json";
+        url = "http://staging.brewtoad.com/api/swagger_doc";
       }
 
       hljs.configure({
@@ -85,6 +85,20 @@
           console.log.apply(console, arguments);
         }
       }
+
+      $('#api-key').change(function() {
+        var key = $('#api-key')[0].value;
+        if(key && key.trim() != "") {
+          swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("X-Api-Key", key, "header"));
+        }
+      })
+
+      //$('#auth-token').change(function() {
+      //  var key = $('#auth-token')[0].value;
+      //  if(key && key.trim() != "") {
+      //    swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("X-Auth-Token", key, "header"));
+      //  }
+      //})      
   });
   </script>
 </head>
@@ -102,6 +116,21 @@
 </div>
 
 <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+
+<div class="swagger-ui-wrap">
+  <form>
+    <label for="api-key">API Key</label>
+    <input id="api-key" name="api-key" value="853e66cf796a5c68574e03af511a0ef" />
+    <br /><br />
+    <label for="auth-token">Auth Token</label>
+    <input id="auth-token" name="auth-token" value="" />
+  </form>
+</div>
+
+<br /><br />
+<hr />
+<br /><br />
+
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
 </html>
