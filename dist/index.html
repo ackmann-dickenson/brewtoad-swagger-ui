@@ -91,7 +91,7 @@
         if(key && key.trim() != "") {
           swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("X-Api-Key", key, "header"));
         }
-      })
+      }).change()
 
       //$('#auth-token').change(function() {
       //  var key = $('#auth-token')[0].value;
