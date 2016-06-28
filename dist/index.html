@@ -89,16 +89,23 @@
       $('#api-key').change(function() {
         var key = $('#api-key')[0].value;
         if(key && key.trim() != "") {
-          swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("X-Api-Key", key, "header"));
+          swaggerUi.api.clientAuthorizations.add("x-api-key", new SwaggerClient.ApiKeyAuthorization("X-Api-Key", key, "header"));
         }
       }).change()
 
-      //$('#auth-token').change(function() {
-      //  var key = $('#auth-token')[0].value;
-      //  if(key && key.trim() != "") {
-      //    swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("X-Auth-Token", key, "header"));
-      //  }
-      //})      
+      $('#auth-token').change(function() {
+       var key = $('#auth-token')[0].value;
+       if(key && key.trim() != "") {
+         swaggerUi.api.clientAuthorizations.add("x-auth-token", new SwaggerClient.ApiKeyAuthorization("X-Auth-Token", key, "header"));
+       }
+      }).change()
+
+      $('#device-id').change(function() {
+       var key = $('#device-id')[0].value;
+       if(key && key.trim() != "") {
+         swaggerUi.api.clientAuthorizations.add("x-device-id", new SwaggerClient.ApiKeyAuthorization("X-Device-ID", key, "header"));
+       }
+      }).change()      
   });
   </script>
 </head>
@@ -124,6 +131,9 @@
     <br /><br />
     <label for="auth-token">Auth Token</label>
     <input id="auth-token" name="auth-token" value="" />
+    <br /><br />
+    <label for="device-id">Device ID</label>
+    <input id="device-id" name="device-id" value="0" />    
   </form>
 </div>
 
