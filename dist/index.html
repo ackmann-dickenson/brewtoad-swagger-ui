@@ -38,7 +38,7 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://staging.brewtoad.com/api/swagger_doc";
+        url = "https://staging.brewtoad.com/api/swagger_doc";
       }
 
       hljs.configure({
@@ -103,7 +103,7 @@
       $('#device-id').change(function() {
        var key = $('#device-id')[0].value;
        if(key && key.trim() != "") {
-         swaggerUi.api.clientAuthorizations.add("x-device-id", new SwaggerClient.ApiKeyAuthorization("X-Device-ID", key, "header"));
+         swaggerUi.api.clientAuthorizations.add("x-device-id", new SwaggerClient.ApiKeyAuthorization("X-Device-Id", key, "header"));
        }
       }).change()      
   });
