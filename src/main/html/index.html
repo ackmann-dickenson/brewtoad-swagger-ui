@@ -98,14 +98,7 @@
        if(key && key.trim() != "") {
          swaggerUi.api.clientAuthorizations.add("x-auth-token", new SwaggerClient.ApiKeyAuthorization("X-Auth-Token", key, "header"));
        }
-      }).change()
-
-      $('#device-id').change(function() {
-       var key = $('#device-id')[0].value;
-       if(key && key.trim() != "") {
-         swaggerUi.api.clientAuthorizations.add("x-device-id", new SwaggerClient.ApiKeyAuthorization("X-Device-Id", key, "header"));
-       }
-      }).change()      
+      }).change()  
   });
   </script>
 </head>
@@ -131,9 +124,6 @@
     <br /><br />
     <label for="auth-token">Auth Token</label>
     <input id="auth-token" name="auth-token" value="" />
-    <br /><br />
-    <label for="device-id">Device ID</label>
-    <input id="device-id" name="device-id" value="0" />    
   </form>
 </div>
 
